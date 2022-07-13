@@ -1,0 +1,31 @@
+
+# Sistema Escolar
+
+Este projeto é referente ao modulo 01 do bootcamp da Generation.
+## Clonar Repositorio
+
+ - Ir ate a pasta dos seus projetos eclipse/
+ - git clone https://github.com/daaug/GenerationModulo01.git
+ - Fazendo isso o projeto sera baixado no seu pc 
+ - Tambem NÃO SERÁ necessario iniciar novo repositorio na sua maquina
+ - É OBRIGATÓRIO criar uma branch nova para trabalhar
+
+## Criando nova Branch
+
+Este comando cria uma nova branch (por causa do -b) e muda para ela (por causa do checkout):
+
+```
+git checkout -b nome_branch
+```
+
+Apos trabalhar na branch, dê commit nas suas alterações e mude para a branch main:
+
+```
+git checkout main
+```
+
+E por fim, dê os seguintes comandos para juntar as alterações do seu branch para o branch main:
+```
+git merge nome_branch
+git push
+```
