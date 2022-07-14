@@ -6,20 +6,37 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 
-		// NÃ£o mexer daqui pra baixo!!!
+		// Nao mexer daqui pra baixo!!!
 		ArrayList<Aluno> alunos = new ArrayList<Aluno>();
 		Scanner entrada = new Scanner(System.in);
+		
+		ArrayList<Professor> professores = new ArrayList<Professor>();
 
 		Professor p1 = new Professor();
+		p1.dadosProfessor("Daniel", "Masc", 27, 34567, "1A", "Matemática");
+		professores.add(p1);
+		
+		Professor p2 = new Professor();
+		p2.dadosProfessor("Angélica", "Fem", 28, 56096, "2B", "Português");
+		professores.add(p2);
 
 		Aluno a1 = new Aluno();
 		a1.dadosAluno("Ronaldo", "Masc", 13, "1A", 12345, 5, 7.5);
 		alunos.add(a1);
-
+		
+		Aluno a2 = new Aluno();
+		a1.dadosAluno("Kenai", "Masc", 7, "2B", 23456, 6, 8);
+		alunos.add(a2);
+		
+		Aluno a3 = new Aluno();
+		a1.dadosAluno("Heloísa", "Fem", 6, "2B", 97539, 7, 9.5);
+		alunos.add(a3);
+		
+		
 		Responsavel r1 = new Responsavel();
 
 		int acesso, tipoAcesso;
-		// NÃ£o mexer daqui pra cima!!!
+		// Nao mexer daqui pra cima!!!
 
 		do { // Inicio do looping principal
 			System.out.println("1 - Login | 2 - Cadastro");

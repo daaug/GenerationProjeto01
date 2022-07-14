@@ -10,6 +10,7 @@ public class Responsavel extends Pessoa {
 
 	public void setRr(int rr) {
 		this.rr = rr;
+		
 	}
 
 }
