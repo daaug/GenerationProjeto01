@@ -1,24 +1,34 @@
 package br.com.gen.sistema;
 
-public class Responsavel {
+public class Responsavel extends Pessoa {
 
-	private int ra;
-	private String nome;
+	private int rr, raAluno;
 
-	public int getRA() {
-		return ra;
+	public int getRr() {
+		return rr;
 	}
 
-	public void setRA(int ra) {
-		this.ra = ra;
+	public void setRr(int rr) {
+		this.rr = rr;
+	}
+	
+	public int getRaAluno() {
+		return raAluno;
 	}
 
-	public String getNome() {
-		return nome;
+	public void setRaAluno(int raAluno) {
+		this.raAluno = raAluno;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void dadosResponsavel(String nome, String sexo, int raAluno, int idade, int rr) {
+		
+		this.setNome(nome);
+		this.setSexo(sexo);
+		this.setIdade(idade);
+		this.setRr(rr);
+		this.setRaAluno(raAluno);
+		
 	}
-
+		
+		
 }
