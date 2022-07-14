@@ -1,18 +1,10 @@
 package br.com.gen.sistema;
 
-public class Aluno {
+public class Aluno extends Pessoa {
 
-	private String nome, materias;
-	private int ra, turma, faltas;
+	private String materias, turma;
+	private int ra, faltas;
 	private double notas;
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
 
 	public String getMaterias() {
 		return materias;
@@ -22,20 +14,20 @@ public class Aluno {
 		this.materias = materias;
 	}
 
+	public String getTurma() {
+		return turma;
+	}
+
+	public void setTurma(String turma) {
+		this.turma = turma;
+	}
+
 	public int getRa() {
 		return ra;
 	}
 
 	public void setRa(int ra) {
 		this.ra = ra;
-	}
-
-	public int getTurma() {
-		return turma;
-	}
-
-	public void setTurma(int turma) {
-		this.turma = turma;
 	}
 
 	public int getFaltas() {

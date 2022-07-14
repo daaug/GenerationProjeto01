@@ -1,24 +1,15 @@
 package br.com.gen.sistema;
 
-public class Responsavel {
+public class Responsavel extends Pessoa {
 
-	private int ra;
-	private String nome;
+	private int rr;
 
-	public int getRA() {
-		return ra;
+	public int getRr() {
+		return rr;
 	}
 
-	public void setRA(int ra) {
-		this.ra = ra;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setRr(int rr) {
+		this.rr = rr;
 	}
 
 }
