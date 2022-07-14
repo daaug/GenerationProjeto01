@@ -2,17 +2,9 @@ package br.com.gen.sistema;
 
 public class Aluno extends Pessoa {
 
-	private String materias, turma;
+	private String turma;
 	private int ra, faltas;
 	private double notas;
-
-	public String getMaterias() {
-		return materias;
-	}
-
-	public void setMaterias(String materias) {
-		this.materias = materias;
-	}
 
 	public String getTurma() {
 		return turma;
@@ -44,6 +36,16 @@ public class Aluno extends Pessoa {
 
 	public void setNotas(double notas) {
 		this.notas = notas;
+	}
+
+	public void dadosAluno(String nome, String sexo, int idade, String turma, int ra, int faltas, double notas) {
+		this.setNome(nome);
+		this.setSexo(sexo);
+		this.setIdade(idade);
+		this.setTurma(turma);
+		this.setRa(ra);
+		this.setFaltas(faltas);
+		this.setNotas(notas);
 	}
 
 }

@@ -1,18 +1,10 @@
 package br.com.gen.sistema;
 
-public class Professor {
-	private String nome;
+public class Professor extends Pessoa {
+
 	private int registro;
 	private String turma;
 	private String matéria;
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
 
 	public int getRegistro() {
 		return registro;
@@ -45,25 +37,25 @@ public class Professor {
 		Professor prof3 = new Professor();
 		Professor prof4 = new Professor();
 
-		//Professor 1:
+		// Professor 1:
 		prof1.setNome("Carlos");
 		prof1.setRegistro(11111);
 		prof1.setTurma("Turma 1-A");
 		prof1.setMatéria("Matemática e Física");
 
-		//Professor 2:
+		// Professor 2:
 		prof2.setNome("Ana");
 		prof2.setRegistro(22222);
 		prof2.setTurma("Turma 3-B");
 		prof2.setMatéria("Química");
 
-		//Professor 3:
+		// Professor 3:
 		prof3.setNome("Breno");
 		prof3.setRegistro(33333);
 		prof3.setTurma("Turma 4-C");
 		prof3.setMatéria("História e Inglês");
 
-		//Professor 4:
+		// Professor 4:
 		prof4.setNome("Marcos");
 		prof4.setRegistro(444444);
 		prof4.setTurma("Turma 3-D");
