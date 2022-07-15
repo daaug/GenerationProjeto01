@@ -46,10 +46,37 @@ public class Main {
 
 				switch (opcao) { // Inicio do switch do tipo de acessos
 				case 1: // Inicio login Professor
+					System.out.println("Qual o seu RP?");
 					int rp = entrada.nextInt();
 
 					for (Professor prof : professores) {
 						if (prof.getRp() == rp) { // Checa se rp existe e loga
+							System.out.println("Você logou como PROFESSOR!");
+
+							int p;
+							do {
+								System.out.println("1 - Agenda | 2 - Notas | 3 - Faltas | 0 - Sair");
+								p = entrada.nextInt();
+
+								switch (p) {
+								case 1:
+									break;
+								case 2:
+
+									for (Aluno aluno : alunos) {
+										if (aluno.getTurma() == prof.getTurma()) {
+											System.out.println(aluno.getNome() + " Turma " + aluno.getTurma() + " Nota: " + aluno.getNotas());
+										}
+
+									}
+
+									break;
+
+								default:
+									p = 0;
+								}
+
+							} while (p != 0);
 
 						}
 					} // Fim for each
@@ -61,7 +88,7 @@ public class Main {
 
 					for (Aluno aluno : alunos) { // Inicio do for each
 						if (aluno.getRa() == ra) { // Checa o RA do aluno se existe
-							System.out.println("Você logou!");
+							System.out.println("Você logou como ALUNO!");
 
 							int a; // Recebe opções do usuario
 							do {
@@ -95,12 +122,17 @@ public class Main {
 					
 					for (Responsavel resp : responsaveis) {
 						if (resp.getRr() == rr) { // Checa se rr existe e loga
+<<<<<<< HEAD
 							System.out.println("Seja bem vindo: "+resp.getNome()+". Você logou como Responsável. ");
 							
+=======
+							System.out.println("Você logou como Responsavel. ");
+
+>>>>>>> origin/professor
 							int r;
 							do {
 								System.out.println("1 - Agenda | 2 - Notas | 3 - Faltas | 0 - Sair");
-								
+
 								r = entrada.nextInt();
 								switch (r) {
 								case 1: {
@@ -113,8 +145,12 @@ public class Main {
 											System.out.println("=========================");
 											System.out.println("Notas: " + aluno.getNome());
 											System.out.println("Notas: " + aluno.getNotas());
+<<<<<<< HEAD
 											System.out.println("=========================");
 											
+=======
+
+>>>>>>> origin/professor
 											break;
 										}
 									}
@@ -132,7 +168,7 @@ public class Main {
 									}
 									break;
 								}
-								default:{
+								default: {
 									r = 0;
 								}
 
@@ -154,6 +190,7 @@ public class Main {
 			case 2: // Acesso de cadastro
 				System.out.println("Cadastrar: ");
 				System.out.println("1 - Professor | 2 - Aluno | 3 - Responsável");
+<<<<<<< HEAD
 				opcao = entrada.nextInt();
 				switch(opcao) {
 				case 1: 	
@@ -179,6 +216,12 @@ public class Main {
 					
 					break;
 				}
+=======
+				
+				opcao = entrada.nextInt(); 
+				
+				
+>>>>>>> origin/professor
 				
 				break;
 			default: // Saida dos acessos login/cadastro
