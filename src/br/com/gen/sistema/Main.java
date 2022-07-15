@@ -65,9 +65,16 @@ public class Main {
 
 									for (Aluno aluno : alunos) {
 										if (aluno.getTurma() == prof.getTurma()) {
-											System.out.println(aluno.getNome() + " Turma " + aluno.getTurma() + " Nota: " + aluno.getNotas());
+											System.out.println("Ra: " + aluno.getRa() + " Nome do aluno: " + aluno.getNome() + " Turma " + aluno.getTurma() + " Nota: " + aluno.getNotas());
 										}
 
+									}
+									break;
+								case 3:
+									for(Aluno aluno : alunos){
+										if(aluno.getTurma() == prof.getTurma()){
+											System.out.println("Ra: " + aluno.getRa() + " Nome do aluno: " + aluno.getNome() + " Turma " + aluno.getTurma() + " Faltas: " + aluno.getFaltas());
+										}
 									}
 
 									break;
@@ -146,6 +153,7 @@ public class Main {
 									break;
 								}
 								case 3: {
+
 									break;
 								}
 								default: {
@@ -167,17 +175,55 @@ public class Main {
 
 				break;
 
-			case 2: // Acesso de cadastro
-				System.out.println("Cadastrar: ");
-				System.out.println("1 - Professor | 2 - Aluno | 3 - Responsável");
-				
-				opcao = entrada.nextInt(); 
-				
-				
-				
-				break;
-			default: // Saida dos acessos login/cadastro
-				opcao = 0;
+				case 2: // Acesso de cadastro
+					System.out.println("Cadastrar: ");
+					System.out.println("1 - Professor | 2 - Aluno | 3 - Responsável");
+					opcao = entrada.nextInt();
+					switch(opcao) {
+						case 1:
+
+							break;
+						case 2:
+							System.out.println("Nome do Aluno: ");
+							String nomeA = entrada.next();
+							System.out.println("Qual o seu sexo: ");
+							String sexoA = entrada.next();
+							System.out.println("Qual a sua idade: ");
+							int idadeA = entrada.nextInt();
+							System.out.println("Informe o seu número de Registro(RA): ");
+							int rA = entrada.nextInt();
+							System.out.println("Informe sua turma: ");
+							String turmaA = entrada.next();
+							System.out.println("Informe as suas faltas: ");
+							int faltasA = entrada.nextInt();
+							System.out.println("Informe a sua nota: ");
+							double notaA = entrada.nextDouble();
+
+							Aluno al = new Aluno(nomeA, sexoA, idadeA, turmaA, rA, faltasA, notaA);
+							alunos.add(al);
+
+							break;
+						case 3:
+							System.out.println("Nome do Responsavel: ");
+							String nomeR = entrada.next();
+							System.out.println("Qual o seu sexo: ");
+							String sexoR = entrada.next();
+							System.out.println("Qual a sua idade: ");
+							int idadeR = entrada.nextInt();
+							System.out.println("Informe o seu número de Registro(RR): ");
+							int rR = entrada.nextInt();
+							System.out.println("Informe o número de registro do seu filho: ");
+							int rAluno = entrada.nextInt();
+
+							Responsavel re = new Responsavel(nomeR, sexoR, idadeR, rR, rAluno);
+							responsaveis.add(re);
+
+							break;
+					}
+
+					break;
+				default: // Saida dos acessos login/cadastro
+					opcao = 0;
 			}
 
 		} while (opcao != 0); // Fim do looping principal
