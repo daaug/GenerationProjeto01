@@ -1,99 +1,102 @@
 package br.com.gen.sistema;
 
+import java.util.Scanner;
+
 public class Professor {
-	private String nome;
-	private int registro;
-	private String turma;
-	private String matéria;
 
-	public String getNome() {
-		return nome;
-	}
+    private String nome;
+    private int registro;
+    private String turma;
+    private String materia;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public int getRegistro() {
-		return registro;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setRegistro(int registro) {
-		this.registro = registro;
-	}
+    public int getRegistro() {
+        return registro;
+    }
 
-	public String getTurma() {
-		return turma;
-	}
+    public void setRegistro(int registro) {
+        this.registro = registro;
+    }
 
-	public void setTurma(String turma) {
-		this.turma = turma;
-	}
+    public String getTurma() {
+        return turma;
+    }
 
-	public String getMatéria() {
-		return matéria;
-	}
+    public void setTurma(String turma) {
+        this.turma = turma;
+    }
 
-	public void setMatéria(String matéria) {
-		this.matéria = matéria;
-	}
+    public String getMateria() {
+        return materia;
+    }
 
-	public static void main(String[] args) {
+    public void setMateria(String materia) {
+        this.materia = materia;
+    }
 
-		Professor prof1 = new Professor();
-		Professor prof2 = new Professor();
-		Professor prof3 = new Professor();
-		Professor prof4 = new Professor();
+    public Professor(String nome, int registro, String turma, String materia) {
+        this.nome = nome;
+        this.registro = registro;
+        this.turma = turma;
+        this.materia = materia;
+    }
 
-		//Professor 1:
-		prof1.setNome("Carlos");
-		prof1.setRegistro(11111);
-		prof1.setTurma("Turma 1-A");
-		prof1.setMatéria("Matemática e Física");
+    public void painel() {
 
-		//Professor 2:
-		prof2.setNome("Ana");
-		prof2.setRegistro(22222);
-		prof2.setTurma("Turma 3-B");
-		prof2.setMatéria("Química");
+        System.out.println("Nome: " + this.nome);
+        System.out.println("Registro: " + this.registro);
+        System.out.println("Turma: " + this.turma);
+        System.out.println("Matérias lecionadas: " + this.materia);
+        System.out.println("---------------------------------------------");
+    }
 
-		//Professor 3:
-		prof3.setNome("Breno");
-		prof3.setRegistro(33333);
-		prof3.setTurma("Turma 4-C");
-		prof3.setMatéria("História e Inglês");
+    public static void main(String[] args) {
 
-		//Professor 4:
-		prof4.setNome("Marcos");
-		prof4.setRegistro(444444);
-		prof4.setTurma("Turma 3-D");
-		prof4.setMatéria("Astronomia e Ocultismo");
+        Professor[] prof = new Professor[4];
+        prof[0] = new Professor("Pedro", 111, "1-A", "Matemática");
+        prof[1] = new Professor("Carlos", 222, "2-A", "Física");
+        prof[2] = new Professor("Ana", 333, "3-A", "Inglês");
+        prof[3] = new Professor("Danilo", 444, "4-A", "Química");
 
-		System.out.println("---------------------------------------------");
-		System.out.println("          | Registro de Professores |          ");
-		System.out.println("---------------------------------------------");
-		System.out.println("Nome do professor: " + prof1.getNome());
-		System.out.println("Registro do professor: " + prof1.getRegistro());
-		System.out.println("Turmas: " + prof1.getTurma());
-		System.out.println("Matérias lecionadas: " + prof1.getMatéria());
+        Scanner input = new Scanner(System.in);
 
-		System.out.println("---------------------------------------------");
-		System.out.println("Nome do professor: " + prof2.getNome());
-		System.out.println("Registro do professor: " + prof2.getRegistro());
-		System.out.println("Turmas: " + prof2.getTurma());
-		System.out.println("Matérias lecionadas: " + prof2.getMatéria());
+        System.out.println("---------------------------------------------");
+        System.out.println("          | Registro de Professores |          ");
+        System.out.println("---------------------------------------------");
+        System.out.println("Olá, professor(a)!");
+        System.out.print("Digite o seu RP:");
+        System.out.println();
+        int RP = input.nextInt();
+        System.out.println();
 
-		System.out.println("---------------------------------------------");
-		System.out.println("Nome do professor: " + prof3.getNome());
-		System.out.println("Registro do professor: " + prof3.getRegistro());
-		System.out.println("Turmas: " + prof3.getTurma());
-		System.out.println("Matérias lecionadas: " + prof3.getMatéria());
 
-		System.out.println("---------------------------------------------");
-		System.out.println("Nome do professor: " + prof4.getNome());
-		System.out.println("Registro do professor: " + prof4.getRegistro());
-		System.out.println("Turmas: " + prof4.getTurma());
-		System.out.println("Matérias lecionadas: " + prof4.getMatéria());
-		System.out.println("---------------------------------------------");
-	}
+        if (RP == 111) {
+            System.out.println("---------------------------------------------");
+            prof[0].painel();
+        } else if (RP == 222) {
+            System.out.println("---------------------------------------------");
+            prof[1].painel();
+        } else if (RP == 333) {
+            System.out.println("---------------------------------------------");
+            prof[2].painel();
+        } else if (RP == 444) {
+            System.out.println("---------------------------------------------");
+            prof[3].painel();
+        }else if(RP == 999){
+            for (int i = 0; i < prof.length; i++) {
+                prof[i].painel();
+            }
+        } else {
+            System.out.println("Registro não encontrado, tente novamente");
+        }
+
+    }
 }
+
