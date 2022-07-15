@@ -92,10 +92,10 @@ public class Main {
 				case 3: // Inicio login Responsavel
 					System.out.println("Qual o seu RR? ");
 					int rr = entrada.nextInt();
-
+					
 					for (Responsavel resp : responsaveis) {
 						if (resp.getRr() == rr) { // Checa se rr existe e loga
-							System.out.println("Você logou como Responsavel. ");
+							System.out.println("Seja bem vindo: "+resp.getNome()+". Você logou como Responsável. ");
 							
 							int r;
 							do {
@@ -154,7 +154,31 @@ public class Main {
 			case 2: // Acesso de cadastro
 				System.out.println("Cadastrar: ");
 				System.out.println("1 - Professor | 2 - Aluno | 3 - Responsável");
-				
+				opcao = entrada.nextInt();
+				switch(opcao) {
+				case 1: 	
+					
+					break;
+				case 2:
+					
+					break;
+				case 3:
+					System.out.println("Nome do Responsavel: ");
+					String nomeR = entrada.next();
+					System.out.println("Qual o seu sexo: ");
+					String sexoR = entrada.next();
+					System.out.println("Qual a sua idade: ");
+					int idadeR = entrada.nextInt();
+					System.out.println("Infirme o seu número de Registro(RR): ");
+					int rR = entrada.nextInt();
+					System.out.println("Informe o número de registro do seu filho: ");
+					int rAluno = entrada.nextInt();
+					
+					Responsavel re = new Responsavel(nomeR, sexoR, idadeR, rR, rAluno);
+					responsaveis.add(re);
+					
+					break;
+				}
 				
 				break;
 			default: // Saida dos acessos login/cadastro
