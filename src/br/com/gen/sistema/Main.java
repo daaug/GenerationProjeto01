@@ -8,16 +8,12 @@ public class Main {
 
 		// Nao mexer daqui pra baixo!!!
 		ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+		ArrayList<Professor> professores = new ArrayList<Professor>();
 		Scanner entrada = new Scanner(System.in);
 		
-		ArrayList<Professor> professores = new ArrayList<Professor>();
-
-		Professor p1 = new Professor();
-		p1.dadosProfessor("Daniel", "Masc", 27, 34567, "1A", "Matemática");
+		Professor p1 = new Professor("Daniel",  27, "1A", "Mat");
 		professores.add(p1);
-		
-		Professor p2 = new Professor();
-		p2.dadosProfessor("Angélica", "Fem", 28, 56096, "2B", "Português");
+		Professor p2 = new Professor("Angelica", 28, "1B", "Por");
 		professores.add(p2);
 
 		Aluno a1 = new Aluno();
@@ -29,9 +25,8 @@ public class Main {
 		alunos.add(a2);
 		
 		Aluno a3 = new Aluno();
-		a1.dadosAluno("Heloísa", "Fem", 6, "2B", 97539, 7, 9.5);
+		a1.dadosAluno("Heloï¿½sa", "Fem", 6, "2B", 97539, 7, 9.5);
 		alunos.add(a3);
-		
 		
 		Responsavel r1 = new Responsavel();
 
