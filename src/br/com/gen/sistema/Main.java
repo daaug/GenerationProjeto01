@@ -110,7 +110,10 @@ public class Main {
 								case 2: {
 									for (Aluno aluno : alunos) {
 										if (aluno.getRa() == resp.getRaAluno()) {
+											System.out.println("=========================");
+											System.out.println("Notas: " + aluno.getNome());
 											System.out.println("Notas: " + aluno.getNotas());
+											System.out.println("=========================");
 											
 											break;
 										}
@@ -119,6 +122,14 @@ public class Main {
 									break;
 								}
 								case 3: {
+									for(Aluno aluno : alunos) {
+										if (aluno.getRa()== resp.getRaAluno()) {
+											System.out.println("=========================");
+											System.out.println("Aluno: "+ aluno.getNome()+" tem " + aluno.getFaltas()+" faltas");
+											System.out.println("=========================");
+											break;
+										}
+									}
 									break;
 								}
 								default:{
@@ -143,6 +154,8 @@ public class Main {
 			case 2: // Acesso de cadastro
 				System.out.println("Cadastrar: ");
 				System.out.println("1 - Professor | 2 - Aluno | 3 - Responsável");
+				
+				
 				break;
 			default: // Saida dos acessos login/cadastro
 				opcao = 0;
