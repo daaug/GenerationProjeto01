@@ -21,4 +21,6 @@ public class Responsavel extends Pessoa{
 	public void setRaAluno(int raAluno) {
 		this.raAluno = raAluno;
 	}
+	
+	
 }

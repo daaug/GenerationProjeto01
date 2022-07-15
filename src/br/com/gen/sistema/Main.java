@@ -11,7 +11,7 @@ public class Main {
 		ArrayList<Professor> professores = new ArrayList<Professor>();
 		ArrayList<Responsavel> responsaveis = new ArrayList<Responsavel>();
 		Scanner entrada = new Scanner(System.in);
-		
+
 		Aluno a1 = new Aluno("Kenai", "Masc", 7, "1A", 1111, 6, 8);
 		Aluno a2 = new Aluno("Heloisa", "Fem", 6, "1B", 2222, 3, 7);
 		Aluno a3 = new Aluno("Robso", "Masc", 7, "1A", 3333, 8, 9);
@@ -24,9 +24,9 @@ public class Main {
 		professores.add(p1);
 		professores.add(p2);
 
-		Responsavel r1 = new Responsavel("Maria", "Fem", 28, 111,  1111);
-		Responsavel r2 = new Responsavel("Antonio", "Masc", 33, 333,  2222);
-		Responsavel r3 = new Responsavel("Renata", "Fem", 44, 444,  3333);
+		Responsavel r1 = new Responsavel("Maria", "Fem", 28, 111, 1111);
+		Responsavel r2 = new Responsavel("Antonio", "Masc", 33, 333, 2222);
+		Responsavel r3 = new Responsavel("Renata", "Fem", 44, 444, 3333);
 		responsaveis.add(r1);
 		responsaveis.add(r2);
 		responsaveis.add(r3);
@@ -48,8 +48,8 @@ public class Main {
 				case 1: // Inicio login Professor
 					int rp = entrada.nextInt();
 
-					for (Professor prof: professores) {
-						if (prof.getRp() == rp){ // Checa se rp existe e loga
+					for (Professor prof : professores) {
+						if (prof.getRp() == rp) { // Checa se rp existe e loga
 
 						}
 					} // Fim for each
@@ -63,11 +63,11 @@ public class Main {
 						if (aluno.getRa() == ra) { // Checa o RA do aluno se existe
 							System.out.println("Você logou!");
 
-							int i; // Recebe opções do usuario
+							int a; // Recebe opções do usuario
 							do {
 								System.out.println("1 - Agenda | 2 - Notas | 3 - Faltas | 0 - Sair");
-								i = entrada.nextInt();
-								switch (i) {
+								a = entrada.nextInt();
+								switch (a) {
 								case 1:
 									break;
 								case 2:
@@ -80,20 +80,56 @@ public class Main {
 									System.out.println("Você tem " + aluno.getFaltas() + " faltas");
 									break;
 								default:
+									a = 0;
 								}
 
-							} while (i != 0);
+							} while (a != 0);
 							break;
 						}
 					}
 					break; // Fim login Aluno
 
 				case 3: // Inicio login Responsavel
+					System.out.println("Qual o seu RR? ");
 					int rr = entrada.nextInt();
 
-					for (Responsavel resp: responsaveis) {
-						if (resp.getRr() == rr){ // Checa se rr existe e loga
+					for (Responsavel resp : responsaveis) {
+						if (resp.getRr() == rr) { // Checa se rr existe e loga
+							System.out.println("Você logou como Responsavel. ");
+							
+							int r;
+							do {
+								System.out.println("1 - Agenda | 2 - Notas | 3 - Faltas | 0 - Sair");
+								
+								r = entrada.nextInt();
+								switch (r) {
+								case 1: {
 
+									break;
+								}
+								case 2: {
+									for (Aluno aluno : alunos) {
+										if (aluno.getRa() == resp.getRaAluno()) {
+											System.out.println("Notas: " + aluno.getNotas());
+											
+											break;
+										}
+									}
+
+									break;
+								}
+								case 3: {
+									break;
+								}
+								default:{
+									r = 0;
+								}
+
+								}
+
+							} while (r != 0);
+
+							break; // Fim login Aluno
 						}
 					} // Fim for each
 					break; // Fim login Responsavel
