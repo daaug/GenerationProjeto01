@@ -1,102 +1,102 @@
 package br.com.gen.sistema;
 
-public class Professor extends Pessoa {
+import java.util.Scanner;
 
-	private int registro;
-	private String turma;
-	private String materia;
+public class Professor {
 
-	public int getRegistro() {
-		return registro;
-	}
+    private String nome;
+    private int registro;
+    private String turma;
+    private String materia;
 
-	public void setRegistro(int registro) {
-		this.registro = registro;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public String getTurma() {
-		return turma;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setTurma(String turma) {
-		this.turma = turma;
-	}
+    public int getRegistro() {
+        return registro;
+    }
 
-	public String getMateria() {
-		return materia;
-	}
+    public void setRegistro(int registro) {
+        this.registro = registro;
+    }
 
-	public void setMateria(String materia) {
-		this.materia = materia;
-	}
+    public String getTurma() {
+        return turma;
+    }
 
-	public void dadosProfessor (String nome, String sexo, int idade, int registro, String turma, String materia) {
-		
-		this.setNome(nome);
-		this.setSexo(sexo);
-		this.setIdade(idade);
-		this.setRegistro(registro);
-		this.setTurma(turma);
-		this.setMateria(materia);
-	}
-	
-	
-	public static void main(String[] args) {
+    public void setTurma(String turma) {
+        this.turma = turma;
+    }
 
-		Professor prof1 = new Professor();
-		Professor prof2 = new Professor();
-		Professor prof3 = new Professor();
-		Professor prof4 = new Professor();
+    public String getMateria() {
+        return materia;
+    }
 
-		// Professor 1:
-		prof1.setNome("Carlos");
-		prof1.setRegistro(11111);
-		prof1.setTurma("Turma 1-A");
-		prof1.setMateria("Matemática e Física");
+    public void setMateria(String materia) {
+        this.materia = materia;
+    }
 
-		// Professor 2:
-		prof2.setNome("Ana");
-		prof2.setRegistro(22222);
-		prof2.setTurma("Turma 3-B");
-		prof2.setMateria("Química");
+    public Professor(String nome, int registro, String turma, String materia) {
+        this.nome = nome;
+        this.registro = registro;
+        this.turma = turma;
+        this.materia = materia;
+    }
 
-		// Professor 3:
-		prof3.setNome("Breno");
-		prof3.setRegistro(33333);
-		prof3.setTurma("Turma 4-C");
-		prof3.setMateria("História e Inglês");
+    public void painel() {
 
-		// Professor 4:
-		prof4.setNome("Marcos");
-		prof4.setRegistro(444444);
-		prof4.setTurma("Turma 3-D");
-		prof4.setMateria("Astronomia e Ocultismo");
+        System.out.println("Nome: " + this.nome);
+        System.out.println("Registro: " + this.registro);
+        System.out.println("Turma: " + this.turma);
+        System.out.println("Matérias lecionadas: " + this.materia);
+        System.out.println("---------------------------------------------");
+    }
 
-		System.out.println("---------------------------------------------");
-		System.out.println("          | Registro de Professores |          ");
-		System.out.println("---------------------------------------------");
-		System.out.println("Nome do professor: " + prof1.getNome());
-		System.out.println("Registro do professor: " + prof1.getRegistro());
-		System.out.println("Turmas: " + prof1.getTurma());
-		System.out.println("Matérias lecionadas: " + prof1.getMateria());
+    public static void main(String[] args) {
 
-		System.out.println("---------------------------------------------");
-		System.out.println("Nome do professor: " + prof2.getNome());
-		System.out.println("Registro do professor: " + prof2.getRegistro());
-		System.out.println("Turmas: " + prof2.getTurma());
-		System.out.println("Matérias lecionadas: " + prof2.getMateria());
+        Professor[] prof = new Professor[4];
+        prof[0] = new Professor("Pedro", 111, "1-A", "Matemática");
+        prof[1] = new Professor("Carlos", 222, "2-A", "Física");
+        prof[2] = new Professor("Ana", 333, "3-A", "Inglês");
+        prof[3] = new Professor("Danilo", 444, "4-A", "Química");
 
-		System.out.println("---------------------------------------------");
-		System.out.println("Nome do professor: " + prof3.getNome());
-		System.out.println("Registro do professor: " + prof3.getRegistro());
-		System.out.println("Turmas: " + prof3.getTurma());
-		System.out.println("Matérias lecionadas: " + prof3.getMateria());
+        Scanner input = new Scanner(System.in);
 
-		System.out.println("---------------------------------------------");
-		System.out.println("Nome do professor: " + prof4.getNome());
-		System.out.println("Registro do professor: " + prof4.getRegistro());
-		System.out.println("Turmas: " + prof4.getTurma());
-		System.out.println("Matérias lecionadas: " + prof4.getMateria());
-		System.out.println("---------------------------------------------");
-	}
+        System.out.println("---------------------------------------------");
+        System.out.println("          | Registro de Professores |          ");
+        System.out.println("---------------------------------------------");
+        System.out.println("Olá, professor(a)!");
+        System.out.print("Digite o seu RP:");
+        System.out.println();
+        int RP = input.nextInt();
+        System.out.println();
+
+
+        if (RP == 111) {
+            System.out.println("---------------------------------------------");
+            prof[0].painel();
+        } else if (RP == 222) {
+            System.out.println("---------------------------------------------");
+            prof[1].painel();
+        } else if (RP == 333) {
+            System.out.println("---------------------------------------------");
+            prof[2].painel();
+        } else if (RP == 444) {
+            System.out.println("---------------------------------------------");
+            prof[3].painel();
+        }else if(RP == 999){
+            for (int i = 0; i < prof.length; i++) {
+                prof[i].painel();
+            }
+        } else {
+            System.out.println("Registro não encontrado, tente novamente");
+        }
+
+    }
 }
+
