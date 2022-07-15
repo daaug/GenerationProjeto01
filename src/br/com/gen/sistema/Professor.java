@@ -2,34 +2,33 @@ package br.com.gen.sistema;
 
 import java.util.Scanner;
 
-public class Professor {
+public class Professor extends Pessoa {
 
-    private String nome;
-    private int rr;
+    private int raAluno, rp;
     private String turma;
     private String materia;
 
-    public Professor(String nome, int rr, String turma, String materia) {
-        this.nome = nome;
-        this.rr = rr;
+    public Professor(String nome, String sexo, int idade, int rp, String turma, String materia) {
+        super(nome, sexo, idade);
+        this.rp = rp;
         this.turma = turma;
         this.materia = materia;
     }
 
-    public String getNome() {
-        return nome;
+    public int getRaAluno() {
+        return raAluno;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setRaAluno(int raAluno) {
+        this.raAluno = raAluno;
     }
 
-    public int getRr() {
-        return rr;
+    public int getRp() {
+        return rp;
     }
 
-    public void setRr(int rr) {
-        this.rr = rr;
+    public void setRp(int rp) {
+        this.rp = rp;
     }
 
     public String getTurma() {
@@ -48,9 +47,9 @@ public class Professor {
         this.materia = materia;
     }
 
-    public void painel() {
 
-        System.out.println("Nome: " + this.nome);
+    /*public void painel() {
+
         System.out.println("Registro: " + this.rr);
         System.out.println("Turma: " + this.turma);
         System.out.println("Matérias lecionadas: " + this.materia);
@@ -97,5 +96,7 @@ public class Professor {
             System.out.println("Registro não encontrado, tente novamente");
         }
 
-    }
+    }*/
+
 }
+
