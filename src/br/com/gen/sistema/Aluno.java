@@ -14,6 +14,22 @@ public class Aluno extends Pessoa {
 		this.notas = notas;
 	}
 
+	public void setTurma(String turma) {
+		this.turma = turma;
+	}
+
+	public void setRa(int ra) {
+		this.ra = ra;
+	}
+
+	public void setFaltas(int faltas) {
+		this.faltas = faltas;
+	}
+
+	public void setNotas(double notas) {
+		this.notas = notas;
+	}
+
 	public String getTurma() {
 		return turma;
 	}
