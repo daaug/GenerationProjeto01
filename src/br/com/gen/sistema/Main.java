@@ -51,14 +51,14 @@ public class Main {
 		int l;
 		do { // Inicio do looping principal
 			System.out.println("==============================================");
-			System.out.println("            | Java Escola v0.01 |");
+			System.out.println("          | Java Escola v0.01 alfa |");
 			System.out.println("==============================================");
 			System.out.println("          1 - Login | 2 - Cadastro");
 			l = entrada.nextInt();
 
 			switch (l) { // Inicio do switch login/cadastro
 			case 1: // Acesso de login
-				System.out.println("==============================================");
+				System.out.println("===========================================");
 				System.out.println("            Faça login como: ");
 				System.out.println("1 - Professor | 2 - Aluno | 3 - Responsavel");
 				l = entrada.nextInt();
@@ -84,39 +84,39 @@ public class Main {
 									System.out.println("1 - Ver Agenda | 2 - Novo evento");
 									int ag = entrada.nextInt();
 
-									switch (ag){
-										case 1:
-											for (Agenda evento : agendaLista) {
-												System.out.println(evento.getAgendaCompleta());
-											}
-											break;
-										case 2:
-											//public Agenda( int dia, int mes, int ano, int hora, int min,
-											// String turma, String descricao)
-											System.out.println("Dia: ");
-											int dia = entrada.nextInt();
-											System.out.println("Mes: ");
-											int mes = entrada.nextInt();
-											System.out.println("Ano: ");
-											int ano = entrada.nextInt();
-											System.out.println("Hora: ");
-											int hora = entrada.nextInt();
-											System.out.println("Minutos: ");
-											int min = entrada.nextInt();
-											System.out.println("Turma: ");
-											String turma = entrada.next();
-											System.out.println("Descricao: ");
-											String descricao = entrada.next();
+									switch (ag) {
+									case 1:
+										for (Agenda evento : agendaLista) {
+											System.out.println(evento.getAgendaCompleta());
+										}
+										break;
+									case 2:
+										// public Agenda( int dia, int mes, int ano, int hora, int min,
+										// String turma, String descricao)
+										System.out.println("Dia: ");
+										int dia = entrada.nextInt();
+										System.out.println("Mes: ");
+										int mes = entrada.nextInt();
+										System.out.println("Ano: ");
+										int ano = entrada.nextInt();
+										System.out.println("Hora: ");
+										int hora = entrada.nextInt();
+										System.out.println("Minutos: ");
+										int min = entrada.nextInt();
+										System.out.println("Turma: ");
+										String turma = entrada.next();
+										System.out.println("Descricao: ");
+										String descricao = entrada.next();
 
-											Agenda agenda = new Agenda(dia, mes, ano, hora, min, turma, descricao);
-											agendaLista.add(agenda);
+										Agenda agenda = new Agenda(dia, mes, ano, hora, min, turma, descricao);
+										agendaLista.add(agenda);
 
-											break;
+										break;
 									}
 									break;
 								case 2:
 									System.out.println("===================================================");
-									System.out.println("1 - Inserir notas | 2 - Visualizar Notas | 0 - Sair");
+									System.out.println("1 - Inserir notas | 2 - Visualizar notas | 0 - Sair");
 									p = entrada.nextInt();
 
 									switch (p) {
@@ -146,16 +146,39 @@ public class Main {
 									}
 									break;
 								case 3:
-									for (Aluno aluno : alunos) {
-										if (aluno.getTurma().equals(prof.getTurma())) {
-											System.out.println(aluno.getNome() + " da turma " + aluno.getTurma()
-													+ " tem " + aluno.getFaltas() + " faltas");
+									System.out.println("=====================================================");
+									System.out.println("1 - Inserir faltas | 2 - Visualizar faltas | 0 - Sair");
+									p = entrada.nextInt();
+
+									switch (p) {
+									case 1:
+										System.out.println("Insira o RA do aluno: ");
+										int raAluno = entrada.nextInt();
+
+										for (Aluno aluno : alunos) {
+											if (aluno.getRa() == raAluno && aluno.getTurma().equals(prof.getTurma())) {
+												System.out.println("Insira as faltas do aluno(a) " + aluno.getNome());
+												int faltaAluno = entrada.nextInt();
+												aluno.setFaltas(faltaAluno);
+												break;
+											}
 										}
+										break;
+
+									case 2:
+										for (Aluno aluno : alunos) {
+											if (aluno.getTurma().equals(prof.getTurma())) {
+												System.out.println(aluno.getNome() + " da turma " + aluno.getTurma()
+														+ " tem " + aluno.getFaltas() + " faltas");
+											}
+										}
+										break;
 									}
 									break;
 								default:
 									p = 0;
 								}
+
 							} while (p != 0);
 						}
 					} // Fim for each
@@ -183,10 +206,20 @@ public class Main {
 									}
 									break;
 								case 2:
-									System.out.println("Sua nota e " + aluno.getNotas());
+									for (Professor prof : professores) {
+										if (aluno.getTurma().equals(prof.getTurma())) {
+											System.out.println(
+													"Você tem nota " + aluno.getNotas() + " em " + prof.getMateria());
+										}
+									}
 									break;
 								case 3:
-									System.out.println("Você tem " + aluno.getFaltas() + " faltas");
+									for (Professor prof : professores) {
+										if (aluno.getTurma().equals(prof.getTurma())) {
+											System.out.println(
+													"Você tem " + aluno.getFaltas() + " faltas em " + prof.getMateria());
+										}
+									}
 									break;
 								default:
 									a = 0;
@@ -214,13 +247,15 @@ public class Main {
 								r = entrada.nextInt();
 								switch (r) {
 								case 1:
-									for (Aluno aluno: alunos) {
+									for (Aluno aluno : alunos) {
 										for (Agenda evento : agendaLista) {
-											System.out.println(evento.getAgendaCompleta());
+											if (aluno.getRa() == resp.getRaAluno()) {
+												System.out.println(evento.getAgendaCompleta());												
+											}
 										}
 									}
 									break;
-									
+
 								case 2:
 									for (Aluno aluno : alunos) {
 										for (Professor prof : professores) {
@@ -236,8 +271,7 @@ public class Main {
 								case 3:
 									for (Aluno aluno : alunos) {
 										if (aluno.getRa() == resp.getRaAluno()) {
-											System.out
-													.println(aluno.getNome() + " tem " + aluno.getFaltas() + " faltas");
+											System.out.println(aluno.getNome() + " tem " + aluno.getFaltas() + " faltas");
 											break;
 										}
 									}
