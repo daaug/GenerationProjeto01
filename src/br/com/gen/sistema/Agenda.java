@@ -47,9 +47,9 @@ public class Agenda {
     }
 
     public String getAgendaCompleta(){
-        return this.getDia() + "" + this.getMes() + "" + this.getAno() +
-                " às " + this.getHora() + "h" + this.getMin() + "m, turma " +
-                this.getTurma() + " : " + this.getDescricao();
+        return this.getDia() + "/" + this.getMes() + "/" + this.getAno() +
+                " as " + this.getHora() + "h" + this.getMin() + ", turma " +
+                this.getTurma() + ": " + this.getDescricao();
     }
 
 }
