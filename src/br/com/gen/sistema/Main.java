@@ -81,11 +81,37 @@ public class Main {
 
 								switch (p) {
 								case 1:
-									for (Agenda evento : agendaLista) {
-										if (evento.getTurma().equals(prof.getTurma())) {
-											System.out.println(evento.getAgendaCompleta());
+									System.out.println("1 - Ver Agenda | 2 - Novo evento");
+									int ag = entrada.nextInt();
+
+									switch (ag){
+										case 1:
+											for (Agenda evento : agendaLista) {
+												System.out.println(evento.getAgendaCompleta());
+											}
 											break;
-										}
+										case 2:
+											//public Agenda( int dia, int mes, int ano, int hora, int min,
+											// String turma, String descricao)
+											System.out.println("Dia: ");
+											int dia = entrada.nextInt();
+											System.out.println("Mes: ");
+											int mes = entrada.nextInt();
+											System.out.println("Ano: ");
+											int ano = entrada.nextInt();
+											System.out.println("Hora: ");
+											int hora = entrada.nextInt();
+											System.out.println("Minutos: ");
+											int min = entrada.nextInt();
+											System.out.println("Turma: ");
+											String turma = entrada.next();
+											System.out.println("Descricao: ");
+											String descricao = entrada.next();
+
+											Agenda agenda = new Agenda(dia, mes, ano, hora, min, turma, descricao);
+											agendaLista.add(agenda);
+
+											break;
 									}
 									break;
 								case 2:
@@ -188,8 +214,8 @@ public class Main {
 								r = entrada.nextInt();
 								switch (r) {
 								case 1:
-									for (Agenda evento : agendaLista) {
-										if (evento.getTurma().equals(aluno.getTurma())) {
+									for (Aluno aluno: alunos) {
+										for (Agenda evento : agendaLista) {
 											System.out.println(evento.getAgendaCompleta());
 										}
 									}
