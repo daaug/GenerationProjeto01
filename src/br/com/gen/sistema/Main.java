@@ -4,236 +4,242 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        // Nao mexer daqui pra baixo!!!
-        ArrayList<Aluno> alunos = new ArrayList<Aluno>();
-        ArrayList<Professor> professores = new ArrayList<Professor>();
-        ArrayList<Responsavel> responsaveis = new ArrayList<Responsavel>();
-        Scanner entrada = new Scanner(System.in);
+		// Nao mexer daqui pra baixo!!!
+		ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+		ArrayList<Professor> professores = new ArrayList<Professor>();
+		ArrayList<Responsavel> responsaveis = new ArrayList<Responsavel>();
+		Scanner entrada = new Scanner(System.in);
 
-        Aluno a1 = new Aluno("Kenai", "Masc", 7, "1A", 1111, 6, 8);
-        Aluno a2 = new Aluno("Heloisa", "Fem", 6, "1B", 2222, 3, 7);
-        Aluno a3 = new Aluno("Robso", "Masc", 7, "1A", 3333, 8, 9);
-        alunos.add(a1);
-        alunos.add(a2);
-        alunos.add(a3);
+		Aluno a1 = new Aluno("Kenai", "Masc", 7, "1A", 123);
+		Aluno a2 = new Aluno("Robso", "Masc", 7, "1A", 456);
+		Aluno a3 = new Aluno("Heloisa", "Fem", 6, "1B", 789);
+		Aluno a4 = new Aluno("Ronaldinho", "Masc", 7, "1B", 101);
+		alunos.add(a1);
+		alunos.add(a2);
+		alunos.add(a3);
+		alunos.add(a4);
 
-        Professor p1 = new Professor("Daniel", "Masc", 27, 77, "1A", "Mat");
-        Professor p2 = new Professor("Angelica", "Fem", 28, 88, "1B", "Por");
-        professores.add(p1);
-        professores.add(p2);
+		Professor p1 = new Professor("Daniel", "Masc", 27, 12, "1A", "matematica");
+		Professor p2 = new Professor("Angelica", "Fem", 28, 34, "1B", "portugues");
+		professores.add(p1);
+		professores.add(p2);
 
-        Responsavel r1 = new Responsavel("Maria", "Fem", 28, 111, 1111);
-        Responsavel r2 = new Responsavel("Antonio", "Masc", 33, 333, 2222);
-        Responsavel r3 = new Responsavel("Renata", "Fem", 44, 444, 3333);
-        responsaveis.add(r1);
-        responsaveis.add(r2);
-        responsaveis.add(r3);
+		Responsavel r1 = new Responsavel("Maria", "Fem", 28, 123, 123);
+		Responsavel r2 = new Responsavel("Antonio", "Masc", 33, 456, 456);
+		Responsavel r3 = new Responsavel("Renata", "Fem", 44, 789, 789);
+		Responsavel r4 = new Responsavel("Ronaldo", "Masc", 57, 101, 101);
+		responsaveis.add(r1);
+		responsaveis.add(r2);
+		responsaveis.add(r3);
+		responsaveis.add(r4);
 
-        int opcao = 0;
-        // Nao mexer daqui pra cima!!!
+		int opcao = 1;
+		// Nao mexer daqui pra cima!!!
 
-        do { // Inicio do looping principal
-            System.out.println("1 - Login | 2 - Cadastro");
-            opcao = entrada.nextInt();
+		int l;
+		do { // Inicio do looping principal
+			System.out.println("==============================================");
+			System.out.println("            | Java Escola v0.01 |");
+			System.out.println("==============================================");
+			System.out.println("          1 - Login | 2 - Cadastro");
+			l = entrada.nextInt();
 
-            switch (opcao) { // Inicio do switch login/cadastro
-                case 1: // Acesso de login
-                    System.out.println("Logar: ");
-                    System.out.println("1 - Professor | 2 - Aluno | 3 - Responsável");
-                    opcao = entrada.nextInt();
+			switch (l) { // Inicio do switch login/cadastro
+			case 1: // Acesso de login
+				System.out.println("==============================================");
+				System.out.println("            Faça login como: ");
+				System.out.println("1 - Professor | 2 - Aluno | 3 - Responsavel");
+				l = entrada.nextInt();
 
-                    switch (opcao) { // Inicio do switch do tipo de acessos
-                        case 1: // Inicio login Professor
-                            System.out.println("Qual o seu RP?");
-                            int rp = entrada.nextInt();
+				switch (l) { // Inicio do switch do tipo de acessos
+				case 1: // Inicio login Professor
+					System.out.println("==============================================");
+					System.out.println("            Qual o seu RP?");
+					int rp = entrada.nextInt();
 
-                            for (Professor prof : professores) {
-                                if (prof.getRp() == rp) { // Checa se rp existe e loga
-                                    System.out.println("Você logou como PROFESSOR!");
+					for (Professor prof : professores) {
+						if (prof.getRp() == rp) { // Checa se rp existe e loga
+							System.out.println("Seja bem vindo(a) professor(a): " + prof.getNome());
 
-                                    int p;
-                                    do {
-                                        System.out.println("1 - Agenda | 2 - Notas | 3 - Faltas | 0 - Sair");
-                                        p = entrada.nextInt();
+							int p;
+							do {
+								System.out.println("==============================================");
+								System.out.println("1 - Agenda | 2 - Notas | 3 - Faltas | 0 - Sair");
+								p = entrada.nextInt();
 
-                                        switch (p) {
-                                            case 1:
-                                                break;
-                                            case 2:
-                                                for (Aluno aluno : alunos) {
-                                                    if (aluno.getTurma() == prof.getTurma()) {
-                                                        System.out.println(aluno.getNome() + " Turma " + aluno.getTurma() + " Nota: " + aluno.getNotas());
-                                                    }
-                                                }
-                                                break;
-                                            case 3:
-                                                for(Aluno aluno : alunos){
-                                                    if(aluno.getTurma() == prof.getTurma()){
-                                                        System.out.println("Ra: " + aluno.getRa() + " Nome do aluno: " + aluno.getNome() + " Turma " + aluno.getTurma() + " Faltas: " + aluno.getFaltas());
-                                                    }
-                                                }
-                                            default:
-                                                p = 0;
-                                        }
+								switch (p) {
+								case 1:
+									break;
+								case 2:
+									for (Aluno aluno : alunos) {
+										if (aluno.getTurma() == prof.getTurma()) {
+											System.out.println(aluno.getNome() + " da turma " + aluno.getTurma()
+													+ " tem nota " + aluno.getNotas() + " em sua materia");
+										}
+									}
+									break;
+								case 3:
+									for (Aluno aluno : alunos) {
+										if (aluno.getTurma() == prof.getTurma()) {
+											System.out.println(aluno.getNome() + " da turma " + aluno.getTurma()
+													+ " tem " + aluno.getFaltas() + " faltas");
+										}
+									}
+									break;
+								default:
+									p = 0;
+								}
+							} while (p != 0);
+						}
+					} // Fim for each
+					break; // Fim login Professor
 
-                                    } while (p != 0);
+				case 2: // Inicio login Aluno
+					System.out.println("Qual o seu RA?");
+					int ra = entrada.nextInt();
 
-                                }
-                            } // Fim for each
-                            break; // Fim login Professor
+					for (Aluno aluno : alunos) { // Inicio do for each
+						if (aluno.getRa() == ra) { // Checa o RA do aluno se existe
+							System.out.println("Seja bem vindo(a) aluno(a): " + aluno.getNome());
 
-                        case 2: // Inicio login Aluno
-                            System.out.println("Qual o seu RA?");
-                            int ra = entrada.nextInt();
+							int a; // Recebe opções do usuario
+							do {
+								System.out.println("==============================================");
+								System.out.println("1 - Agenda | 2 - Notas | 3 - Faltas | 0 - Sair");
+								a = entrada.nextInt();
+								switch (a) {
+								case 1:
+									break;
+								case 2:
+									System.out.println("Sua nota e " + aluno.getNotas());
+									break;
+								case 3:
+									System.out.println("Você tem " + aluno.getFaltas() + " faltas");
+									break;
+								default:
+									a = 0;
+								}
 
-                            for (Aluno aluno : alunos) { // Inicio do for each
-                                if (aluno.getRa() == ra) { // Checa o RA do aluno se existe
-                                    System.out.println("Você logou como ALUNO!");
+							} while (a != 0);
+							break;
+						}
+					}
+					break; // Fim login Aluno
 
-                                    int a; // Recebe opções do usuario
-                                    do {
-                                        System.out.println("1 - Agenda | 2 - Notas | 3 - Faltas | 0 - Sair");
-                                        a = entrada.nextInt();
-                                        switch (a) {
-                                            case 1:
-                                                break;
-                                            case 2:
-                                                System.out.println("--------------------------------------------");
-                                                System.out.println("               | Curso Java |               ");
-                                                System.out.println("--------------------------------------------");
-                                                System.out.println("Sua nota é " + aluno.getNotas());
-                                                break;
-                                            case 3:
-                                                System.out.println("Você tem " + aluno.getFaltas() + " faltas");
-                                                break;
-                                            default:
-                                                a = 0;
-                                        }
+				case 3: // Inicio login Responsavel
+					System.out.println("Qual o seu RR? ");
+					int rr = entrada.nextInt();
 
-                                    } while (a != 0);
-                                    break;
-                                }
-                            }
-                            break; // Fim login Aluno
+					for (Responsavel resp : responsaveis) {
+						if (resp.getRr() == rr) { // Checa se rr existe e loga
+							System.out.println("Seja bem vindo(a) responsavel: " + resp.getNome());
 
-                        case 3: // Inicio login Responsavel
-                            System.out.println("Qual o seu RR? ");
-                            int rr = entrada.nextInt();
+							int r;
+							do {
+								System.out.println("==============================================");
+								System.out.println("1 - Agenda | 2 - Notas | 3 - Faltas | 0 - Sair");
 
-                            for (Responsavel resp : responsaveis) {
-                                if (resp.getRr() == rr) { // Checa se rr existe e loga
-                                    System.out.println("Seja bem vindo: "+resp.getNome()+". Você logou como Responsável. ");
-                                    System.out.println("Você logou como Responsavel. ");
+								r = entrada.nextInt();
+								switch (r) {
+								case 1: {
 
-                                    int r;
-                                    do {
-                                        System.out.println("1 - Agenda | 2 - Notas | 3 - Faltas | 0 - Sair");
+									break;
+								}
+								case 2:
+									for (Aluno aluno : alunos) {
+										for (Professor prof : professores) {
+											if (aluno.getRa() == resp.getRaAluno()) {
+												System.out.println("Na materia " + prof.getMateria() + ", "
+														+ aluno.getNome() + " tirou a nota " + aluno.getNotas());
+												break;
+											}
+										}
+									}
+									break;
 
-                                        r = entrada.nextInt();
-                                        switch (r) {
-                                            case 1: {
+								case 3:
+									for (Aluno aluno : alunos) {
+										if (aluno.getRa() == resp.getRaAluno()) {
+											System.out
+													.println(aluno.getNome() + " tem " + aluno.getFaltas() + " faltas");
+											break;
+										}
+									}
+									break;
 
-                                                break;
-                                            }
-                                            case 2: {
-                                                for (Aluno aluno : alunos) {
-                                                    if (aluno.getRa() == resp.getRaAluno()) {
-                                                        System.out.println("=========================");
-                                                        System.out.println("Nome: " + aluno.getNome());
-                                                        System.out.println("Notas: " + aluno.getNotas());
-                                                        System.out.println("=========================");
+								default: {
+									r = 0;
+								}
 
-                                                        break;
-                                                    }
-                                                }
-                                                break;
-                                            }
-                                            case 3: {
-                                                for(Aluno aluno : alunos) {
-                                                    if (aluno.getRa()== resp.getRaAluno()) {
-                                                        System.out.println("=========================");
-                                                        System.out.println("Aluno: "+ aluno.getNome()+" tem " + aluno.getFaltas()+" faltas");
-                                                        System.out.println("=========================");
-                                                        break;
-                                                    }
-                                                }
-                                                break;
-                                            }
-                                            default: {
-                                                r = 0;
-                                            }
+								}
 
-                                        }
+							} while (r != 0);
 
-                                    } while (r != 0);
+							break; // Fim login Aluno
+						}
+					} // Fim for each
+					break; // Fim login Responsavel
+				default:
+					l = 0;
+					System.out.println("Opção inválida!");
+				}
+				break;
 
-                                    break; // Fim login Aluno
-                                }
-                            } // Fim for each
-                            break; // Fim login Responsavel
-                        default:
-                            System.out.println("Opção inválida!");
-                            continue;
-                    }
+			case 2: // Acesso de cadastro
+				System.out.println("                Cadastrar: ");
+				System.out.println("==============================================");
+				System.out.println("1 - Professor | 2 - Aluno | 3 - Responsavel | 0 - Sair");
+				int c;
+				c = entrada.nextInt();
+				switch (c) {
+				case 1:
 
-                    break;
+					break;
+				case 2:
 
-                case 2: // Acesso de cadastro
-                    System.out.println("Cadastrar: ");
-                    System.out.println("1 - Professor | 2 - Aluno | 3 - Responsável");
-                    opcao = entrada.nextInt();
-                    switch(opcao) {
-                        case 1:
+					System.out.println("Nome do Aluno: ");
+					String nomeA = entrada.next();
+					System.out.println("Qual o seu sexo: ");
+					String sexoA = entrada.next();
+					System.out.println("Qual a sua idade: ");
+					int idadeA = entrada.nextInt();
+					System.out.println("Informe o seu número de Registro(RA): ");
+					int rA = entrada.nextInt();
+					System.out.println("Informe sua turma: ");
+					String turmaA = entrada.next();
 
-                            break;
-                        case 2:
+					Aluno al = new Aluno(nomeA, sexoA, idadeA, turmaA, rA);
+					alunos.add(al);
 
-                            System.out.println("Nome do Aluno: ");
-                            String nomeA = entrada.next();
-                            System.out.println("Qual o seu sexo: ");
-                            String sexoA = entrada.next();
-                            System.out.println("Qual a sua idade: ");
-                            int idadeA = entrada.nextInt();
-                            System.out.println("Informe o seu número de Registro(RA): ");
-                            int rA = entrada.nextInt();
-                            System.out.println("Informe sua turma: ");
-                            String turmaA = entrada.next();
-                            System.out.println("Informe as suas faltas: ");
-                            int faltasA = entrada.nextInt();
-                            System.out.println("Informe a sua nota: ");
-                            double notaA = entrada.nextDouble();
+					break;
+				case 3:
+					System.out.println("Nome do Responsavel: ");
+					String nomeR = entrada.next();
+					System.out.println("Qual o seu sexo: ");
+					String sexoR = entrada.next();
+					System.out.println("Qual a sua idade: ");
+					int idadeR = entrada.nextInt();
+					System.out.println("Informe o seu numero de Registro(RR): ");
+					int rR = entrada.nextInt();
+					System.out.println("Informe o número de registro do seu filho: ");
+					int rAluno = entrada.nextInt();
 
-                            Aluno al = new Aluno(nomeA, sexoA, idadeA, turmaA, rA, faltasA, notaA);
-                            alunos.add(al);
+					Responsavel re = new Responsavel(nomeR, sexoR, idadeR, rR, rAluno);
+					responsaveis.add(re);
 
-                            break;
-                        case 3:
-                            System.out.println("Nome do Responsavel: ");
-                            String nomeR = entrada.next();
-                            System.out.println("Qual o seu sexo: ");
-                            String sexoR = entrada.next();
-                            System.out.println("Qual a sua idade: ");
-                            int idadeR = entrada.nextInt();
-                            System.out.println("Informe o seu numero de Registro(RR): ");
-                            int rR = entrada.nextInt();
-                            System.out.println("Informe o número de registro do seu filho: ");
-                            int rAluno = entrada.nextInt();
+					break;
+				}
+				break;
+			default: // Saida dos acessos login/cadastro
+				c = 0;
+			}
 
-                            Responsavel re = new Responsavel(nomeR, sexoR, idadeR, rR, rAluno);
-                            responsaveis.add(re);
+		} while (opcao != 0); // Fim do looping principal
 
-                            break;
-                    }
-                    break;
-                default: // Saida dos acessos login/cadastro
-                    opcao = 0;
-            }
+		System.out.println("Programa finalizado!");
+		entrada.close();
 
-        } while (opcao != 0); // Fim do looping principal
-
-        entrada.close();
-
-    }
+	}
 }

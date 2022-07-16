@@ -6,12 +6,12 @@ public class Aluno extends Pessoa {
 	private int ra, faltas;
 	private double notas;
 
-	public Aluno(String nome, String sexo, int idade, String turma, int ra, int faltas, double notas) {
+	public Aluno(String nome, String sexo, int idade, String turma, int ra) {
 		super(nome, sexo, idade);
 		this.turma = turma;
 		this.ra = ra;
-		this.faltas = faltas;
-		this.notas = notas;
+		this.faltas = 0;
+		this.notas = 0;
 	}
 
 	public void setTurma(String turma) {
