@@ -10,12 +10,17 @@ public class Main {
 		ArrayList<Aluno> alunos = new ArrayList<Aluno>();
 		ArrayList<Professor> professores = new ArrayList<Professor>();
 		ArrayList<Responsavel> responsaveis = new ArrayList<Responsavel>();
+		ArrayList<Agenda> agendaLista = new ArrayList<Agenda>();
 		Scanner entrada = new Scanner(System.in);
 
 		Aluno a1 = new Aluno("Kenai", "Masc", 7, "1A", 123);
 		Aluno a2 = new Aluno("Robso", "Masc", 7, "1A", 456);
 		Aluno a3 = new Aluno("Heloisa", "Fem", 6, "1B", 789);
 		Aluno a4 = new Aluno("Ronaldinho", "Masc", 7, "1B", 101);
+		a1.setNotas(8);
+		a1.setNotas(7);
+		a1.setNotas(6);
+		a1.setNotas(9);
 		alunos.add(a1);
 		alunos.add(a2);
 		alunos.add(a3);
@@ -34,6 +39,11 @@ public class Main {
 		responsaveis.add(r2);
 		responsaveis.add(r3);
 		responsaveis.add(r4);
+
+		Agenda ag1 = new Agenda(10,11,22,15,30,"1A", "Reuniao de Pais");
+		Agenda ag2 = new Agenda(6,11,22,12,10,"1B", "Preparativos Natal");
+		agendaLista.add(ag1);
+		agendaLista.add(ag2);
 
 		int opcao = 1;
 		// Nao mexer daqui pra cima!!!
@@ -71,10 +81,15 @@ public class Main {
 
 								switch (p) {
 								case 1:
+									for (Agenda evento:agendaLista) {
+										if (evento.getTurma().equals(prof.getTurma())){
+											System.out.println(evento.getAgendaCompleta());
+										}
+									}
 									break;
 								case 2:
 									for (Aluno aluno : alunos) {
-										if (aluno.getTurma() == prof.getTurma()) {
+										if (aluno.getTurma().equals(prof.getTurma())) {
 											System.out.println(aluno.getNome() + " da turma " + aluno.getTurma()
 													+ " tem nota " + aluno.getNotas() + " em sua materia");
 										}
@@ -82,7 +97,7 @@ public class Main {
 									break;
 								case 3:
 									for (Aluno aluno : alunos) {
-										if (aluno.getTurma() == prof.getTurma()) {
+										if (aluno.getTurma().equals(prof.getTurma())) {
 											System.out.println(aluno.getNome() + " da turma " + aluno.getTurma()
 													+ " tem " + aluno.getFaltas() + " faltas");
 										}
@@ -111,6 +126,11 @@ public class Main {
 								a = entrada.nextInt();
 								switch (a) {
 								case 1:
+									for (Agenda evento:agendaLista) {
+										if (evento.getTurma().equals(aluno.getTurma())){
+											System.out.println(evento.getAgendaCompleta());
+										}
+									}
 									break;
 								case 2:
 									System.out.println("Sua nota e " + aluno.getNotas());
@@ -233,7 +253,7 @@ public class Main {
 				}
 				break;
 			default: // Saida dos acessos login/cadastro
-				c = 0;
+				opcao = 0;
 			}
 
 		} while (opcao != 0); // Fim do looping principal
