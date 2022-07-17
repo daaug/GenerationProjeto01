@@ -51,7 +51,7 @@ public class Main {
 		int l;
 		do { // Inicio do looping principal
 			System.out.println("================================================");
-			System.out.println("\t\t| Java Escola v0.01 alfa |");
+			System.out.println("\t\t| JavAccess v0.01 alfa |");
 			System.out.println("================================================");
 			System.out.println("\t1 - Login | 2 - Cadastro | 0 - Sair");
 			l = entrada.nextInt();
