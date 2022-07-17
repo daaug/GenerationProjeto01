@@ -70,7 +70,7 @@ public class Agenda {
         String turma = entrada.next();
 
         System.out.println("Descricao: ");
-        String descricao = entrada.next();
+        String descricao = entrada.nextLine();
 
         entrada.close();
 
