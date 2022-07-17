@@ -50,21 +50,21 @@ public class Main {
 
 		int l;
 		do { // Inicio do looping principal
-			System.out.println("==============================================");
-			System.out.println("          | Java Escola v0.01 alfa |");
-			System.out.println("==============================================");
-			System.out.println("          1 - Login | 2 - Cadastro");
+			System.out.println("================================================");
+			System.out.println("\t\t| Java Escola v0.01 alfa |");
+			System.out.println("================================================");
+			System.out.println("\t1 - Login | 2 - Cadastro | 0 - Sair");
 			l = entrada.nextInt();
 
 			switch (l) { // Inicio do switch login/cadastro
 				case 1 -> { // Acesso de login
-					System.out.println("===========================================");
+					System.out.println("=============================================");
 					System.out.println("            Faça login como: ");
 					System.out.println("1 - Professor | 2 - Aluno | 3 - Responsavel");
 					l = entrada.nextInt();
 					switch (l) { // Inicio do switch do tipo de acessos
 						case 1 -> { // Inicio login Professor
-							System.out.println("==============================================");
+							System.out.println("================================================");
 							System.out.println("            Qual o seu RP?");
 							int rp = entrada.nextInt();
 							for (Professor prof : professores) {
@@ -88,26 +88,7 @@ public class Main {
 														}
 														break;
 													case 2:
-														// public Agenda( int dia, int mes, int ano, int hora, int min,
-														// String turma, String descricao)
-														System.out.println("Dia: ");
-														int dia = entrada.nextInt();
-														System.out.println("Mes: ");
-														int mes = entrada.nextInt();
-														System.out.println("Ano: ");
-														int ano = entrada.nextInt();
-														System.out.println("Hora: ");
-														int hora = entrada.nextInt();
-														System.out.println("Minutos: ");
-														int min = entrada.nextInt();
-														System.out.println("Turma: ");
-														String turma = entrada.next();
-														System.out.println("Descricao: ");
-														String descricao = entrada.next();
-
-														Agenda agenda = new Agenda(dia, mes, ano, hora, min, turma, descricao);
-														agendaLista.add(agenda);
-
+														agendaLista.add(Agenda.cadastro());
 														break;
 												}
 											}
@@ -291,48 +272,13 @@ public class Main {
 					c = entrada.nextInt();
 					switch (c) {
 						case 1 -> {
-							System.out.println("Nome do Aluno: ");
-							String nomeP = entrada.next();
-							System.out.println("Qual o seu sexo: ");
-							String sexoP = entrada.next();
-							System.out.println("Qual a sua idade: ");
-							int idadeP = entrada.nextInt();
-							System.out.println("Informe o seu número de Registro(RA): ");
-							int rP = entrada.nextInt();
-							System.out.println("Informe sua turma: ");
-							String turmaP = entrada.next();
-							System.out.println("Informe sua materia: ");
-							String materiaP = entrada.next();
-							Professor pr = new Professor(nomeP, sexoP, idadeP, rP, turmaP, materiaP);
-							professores.add(pr);
+							professores.add(Professor.cadastro());
 						}
 						case 2 -> {
-							System.out.println("Nome do Aluno: ");
-							String nomeA = entrada.next();
-							System.out.println("Qual o seu sexo: ");
-							String sexoA = entrada.next();
-							System.out.println("Qual a sua idade: ");
-							int idadeA = entrada.nextInt();
-							System.out.println("Informe o seu número de Registro(RA): ");
-							int rA = entrada.nextInt();
-							System.out.println("Informe sua turma: ");
-							String turmaA = entrada.next();
-							Aluno al = new Aluno(nomeA, sexoA, idadeA, turmaA, rA);
-							alunos.add(al);
+							alunos.add(Aluno.cadastro());
 						}
 						case 3 -> {
-							System.out.println("Nome do Responsavel: ");
-							String nomeR = entrada.next();
-							System.out.println("Qual o seu sexo: ");
-							String sexoR = entrada.next();
-							System.out.println("Qual a sua idade: ");
-							int idadeR = entrada.nextInt();
-							System.out.println("Informe o seu numero de Registro(RR): ");
-							int rR = entrada.nextInt();
-							System.out.println("Informe o número de registro do seu filho: ");
-							int rAluno = entrada.nextInt();
-							Responsavel re = new Responsavel(nomeR, sexoR, idadeR, rR, rAluno);
-							responsaveis.add(re);
+							responsaveis.add(Responsavel.cadastro());
 						}
 					}
 				}

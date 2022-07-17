@@ -1,5 +1,7 @@
 package br.com.gen.sistema;
 
+import java.util.Scanner;
+
 public class Agenda {
 
     private int dia, mes, ano;
@@ -44,6 +46,36 @@ public class Agenda {
 
     public String getDescricao() {
         return descricao;
+    }
+
+    public static Agenda cadastro(){
+        Scanner entrada = new Scanner(System.in);
+
+        System.out.println("Dia: ");
+        int dia = entrada.nextInt();
+
+        System.out.println("Mes: ");
+        int mes = entrada.nextInt();
+
+        System.out.println("Ano: ");
+        int ano = entrada.nextInt();
+
+        System.out.println("Hora: ");
+        int hora = entrada.nextInt();
+
+        System.out.println("Minutos: ");
+        int min = entrada.nextInt();
+
+        System.out.println("Turma: ");
+        String turma = entrada.next();
+
+        System.out.println("Descricao: ");
+        String descricao = entrada.next();
+
+        entrada.close();
+
+        Agenda agenda = new Agenda(dia, mes, ano, hora, min, turma, descricao);
+        return agenda;
     }
 
     public String getAgendaCompleta(){

@@ -1,5 +1,7 @@
 package br.com.gen.sistema;
 
+import java.util.Scanner;
+
 public class Aluno extends Pessoa {
 
 	private String turma;
@@ -44,6 +46,31 @@ public class Aluno extends Pessoa {
 
 	public double getNotas() {
 		return notas;
+	}
+
+	public static Aluno cadastro(){
+
+		Scanner entrada = new Scanner(System.in);
+
+		System.out.println("Nome do Aluno: ");
+		String nomeA = entrada.next();
+
+		System.out.println("Qual o seu sexo: ");
+		String sexoA = entrada.next();
+
+		System.out.println("Qual a sua idade: ");
+		int idadeA = entrada.nextInt();
+
+		System.out.println("Informe o seu número de Registro(RA): ");
+		int rA = entrada.nextInt();
+
+		System.out.println("Informe sua turma: ");
+		String turmaA = entrada.next();
+
+		entrada.close();
+		Aluno al = new Aluno(nomeA, sexoA, idadeA, turmaA, rA);
+
+		return al;
 	}
 
 }
