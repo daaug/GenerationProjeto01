@@ -47,7 +47,7 @@ public class Professor extends Pessoa {
 		this.materia = materia;
 	}
 
-	public static Professor cadastro(){
+	public static Professor cadastro() {
 		Scanner entrada = new Scanner(System.in);
 		System.out.println("Nome do Professor: ");
 		String nomeP = entrada.next();
@@ -67,7 +67,6 @@ public class Professor extends Pessoa {
 		System.out.println("Informe sua materia: ");
 		String materiaP = entrada.next();
 
-		entrada.close();
 		Professor pr = new Professor(nomeP, sexoP, idadeP, rP, turmaP, materiaP);
 
 		return pr;

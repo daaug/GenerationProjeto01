@@ -48,7 +48,7 @@ public class Aluno extends Pessoa {
 		return notas;
 	}
 
-	public static Aluno cadastro(){
+	public static Aluno cadastro() {
 
 		Scanner entrada = new Scanner(System.in);
 
@@ -67,7 +67,6 @@ public class Aluno extends Pessoa {
 		System.out.println("Informe sua turma: ");
 		String turmaA = entrada.next();
 
-		entrada.close();
 		Aluno al = new Aluno(nomeA, sexoA, idadeA, turmaA, rA);
 
 		return al;
